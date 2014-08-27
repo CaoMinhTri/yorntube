@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE hibernate-mapping PUBLIC
+'-//Hibernate/Hibernate Mapping DTD 3.0//EN'
+'http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd'>
+<hibernate-mapping>
+    <class name='yorntube.persistence.Activity' table='activities'>
+        <id name='activity_id' type='long' column='A_ID'>
+            <generator class='increment'/>
+        </id>
+        <many-to-one name="user" class='yorntube.persistence.User'>
+            <column name="U_ID"/>
+        </many-to-one> 
+        <many-to-one name="video" class='yorntube.persistence.Video'>
+            <column name="V_ID"/>
+        </many-to-one> 
+        <property name='activity_type' column='ACTIVITYTYPE'/>
+        <property name='time' type='timestamp' column='TIME'/>
+    </class>
+</hibernate-mapping>
